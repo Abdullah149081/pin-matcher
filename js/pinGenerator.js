@@ -38,3 +38,24 @@ document.getElementById("calculator").addEventListener("click", function (event)
     calInputField.value = sumAdd;
   }
 });
+
+document.getElementById("submit-btn").addEventListener("click", function () {
+  const pinInput = inputValueMatch("pin-input");
+  const calInput = inputValueMatch("cal-input");
+  const pinSuccess = document.querySelector("#pin-success");
+  const pinFailed = document.getElementById("pin-failed");
+
+  if (pinInput === calInput) {
+    pinSuccess.style.display = "block";
+    pinFailed.style.display = "none";
+  } else {
+    pinFailed.style.display = "block";
+    pinSuccess.style.display = "none";
+  }
+});
+
+function inputValueMatch(inputValue) {
+  const inputValueGet = document.getElementById(inputValue).value;
+  const inputValueReturn = inputValueGet;
+  return inputValueReturn;
+}
